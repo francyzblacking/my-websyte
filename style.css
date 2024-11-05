@@ -16,11 +16,11 @@ body {
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateY(10px); /* Флаги начнутся немного ниже */
+    transform: translateY(10px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0); /* Флаги поднимутся на свое место */
+    transform: translateY(0);
   }
 }
 
@@ -35,53 +35,41 @@ body {
   }
 }
 
-/* Анимация для увеличения флага */
-@keyframes scaleUp {
-  0% {
-    transform: scale(0.9); /* Начинаем с меньшего размера */
-  }
-  100% {
-    transform: scale(1); /* Флаг увеличится до нормального размера */
-  }
-}
-
 /* Новый контейнер для блоков выбора языка */
 .language-wrapper {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 30px; /* Отступ снизу, чтобы блоки выбора языка не налезали на основной контейнер */
-  background-color: #25D366; /* Красный фон контейнера */
-  padding: 10px 0; /* Добавим немного внутреннего отступа */
-  box-sizing: border-box; /* Учитываем отступы и границы в ширину */
-  max-width: 400px; /* Максимальная ширина контейнера */
-  margin-left: auto; /* Центрируем контейнер по горизонтали */
-  margin-right: auto; /* Центрируем контейнер по горизонтали */
-  
-  /* Добавляем тень */
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3), 0 6px 20px rgba(0, 0, 0, 0.1); /* Мягкая тень */
-  border-radius: 10px; /* Скругление углов для более плавного вида */
+  flex-direction: column;
+  margin-bottom: 30px;
+  background-color: #25D366; /* Зеленый фон */
+  padding: 10px 0;
+  box-sizing: border-box;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3), 0 6px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
 /* Контейнер для блоков выбора языка */
 .language-selection-container {
   display: flex;
-  justify-content: space-around; /* Равномерное распределение флагов по контейнеру */
+  justify-content: space-around;
   align-items: center;
-  width: 100%; /* Ширина 100% */
-  max-width: 400px; /* Ограничиваем максимальную ширину */
-  overflow: hidden; /* Отключаем переполнение */
+  width: 100%;
+  max-width: 400px;
+  overflow: hidden;
 }
 
 /* Блоки выбора языка */
 .language-selection {
   display: flex;
-  justify-content: space-around; /* Равномерное распределение флагов */
+  justify-content: space-around;
   align-items: center;
-  width: 100%; /* Контейнер с флагами будет занимать 100% ширины родительского контейнера */
+  width: 100%;
   height: 50px;
   box-sizing: border-box;
-  position: relative;
 }
 
 /* Маленькие контейнеры для каждого флага */
@@ -91,28 +79,13 @@ body {
   height: 50px;
   border-radius: 50%;
   overflow: hidden;
-  background-color: #fff; /* Белый фон для флажков */
+  background-color: #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0; /* Флаги изначально невидимы */
-  animation: fadeIn 0.5s ease-out forwards, scaleUp 0.3s ease-out forwards; /* Применяем анимацию появления и увеличения */
-}
-
-/* Смещаем блок с русским языком влево */
-.language-option:nth-child(1) {
-  animation-delay: 0.2s; /* Задержка для первого флага */
-}
-
-/* Смещаем блок с английским языком в центр */
-.language-option:nth-child(2) {
-  animation-delay: 0.2s; /* Задержка для второго флага */
-}
-
-/* Смещаем блок с румынским языком вправо */
-.language-option:nth-child(3) {
-  animation-delay: 0.2s; /* Задержка для третьего флага */
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
 }
 
 /* Настроим картинки флагов */
@@ -122,49 +95,58 @@ body {
   object-fit: cover;
 }
 
+/* Текст под флагами */
+.languages-text {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+}
+
 /* Контейнер с контентом (основной блок) */
 .container {
   text-align: center;
-  background-color: #acfac6; /* Белый фон контейнера */
+  background-color: #acfac6;
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(206, 162, 162, 100);
   width: 100%;
-  max-width: 400px; /* Максимальная ширина контейнера */
+  max-width: 400px;
   box-sizing: border-box;
-  animation: fadeIn 0.5s ease-out forwards; /* Анимация появления */
-  display: none; /* Изначально скрыт */
+  animation: fadeIn 0.5s ease-out forwards;
+  display: none;
 }
 
 /* Стиль для картинки в верхней части */
 .header-image {
-  max-width: 100%; /* Картинка будет растягиваться по ширине контейнера */
+  max-width: 100%;
   height: auto;
-  margin-bottom: 20px; /* Отступ снизу, чтобы кнопка не была слишком близко к картинке */
+  margin-bottom: 20px;
 }
 
 /* Стиль кнопки */
 .whatsapp-button {
-  background-color: #25D366; /* Зеленый цвет WhatsApp */
-  color: white; /* Белый цвет текста */
+  background-color: #25D366;
+  color: white;
   font-size: 18px;
   padding: 15px 30px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
-  width: 100%; /* Кнопка будет растягиваться по ширине контейнера */
-  max-width: 300px; /* Максимальная ширина кнопки */
+  width: 100%;
+  max-width: 300px;
 }
 
 .whatsapp-button:hover {
-  background-color: #128C7E; /* Темный зеленый при наведении */
+  background-color: #128C7E;
 }
 
 /* Стиль кнопки возврата (стрелка) */
 .back-button {
-  background-color: #fff; /* Белый фон кнопки */
-  color: #25D366; /* Зеленый цвет текста */
+  background-color: #fff;
+  color: #25D366;
   font-size: 16px;
   padding: 10px 20px;
   border: none;
@@ -172,9 +154,9 @@ body {
   cursor: pointer;
   margin-top: 20px;
   transition: background-color 0.3s;
-  display: none; /* Скрыта по умолчанию */
+  display: none;
 }
 
 .back-button:hover {
-  background-color: #128C7E; /* Темный зеленый при наведении */
+  background-color: #128C7E;
 }
