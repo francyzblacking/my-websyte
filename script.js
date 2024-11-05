@@ -1,8 +1,8 @@
 // Храним сообщения для каждого языка
 const messages = {
-  ru: "Здравствуйте! Можно узнать деталии работы?.",  // Сообщение на русском
+  ru: "Здравствуйте! Можно узнать детали работы?",  // Сообщение на русском
   en: "Hello! May I have the details of the job?",  // Сообщение на английском
-  ro: "Bună ziua! Îmi puteți da detaliile postului?"  // Сообщение на румынском
+  ro: "Bună ziua! Îmi puteți oferi detalii despre post?"  // Сообщение на румынском
 };
 
 // Текущий выбранный язык (по умолчанию русский)
@@ -107,3 +107,5 @@ function updateBackButtonText(language) {
       break;
   }
 }
+
+
