@@ -1,8 +1,8 @@
 // Храним сообщения для каждого языка
 const messages = {
-  ru: "Привет! Я хочу связаться с вами.",  // Сообщение на русском
-  en: "Hello! I want to get in touch with you.",  // Сообщение на английском
-  ro: "Bună! Vreau să iau legătura cu tine."  // Сообщение на румынском
+  ru: "Здравствуйте! Можно узнать деталии работы?.",  // Сообщение на русском
+  en: "Hello! May I have the details of the job?",  // Сообщение на английском
+  ro: "Bună ziua! Îmi puteți da detaliile postului?"  // Сообщение на румынском
 };
 
 // Текущий выбранный язык (по умолчанию русский)
@@ -44,6 +44,9 @@ function setLanguage(language) {
             break;
     }
 
+    // Обновляем текст кнопки возврата
+    updateBackButtonText(language);
+
     // Показываем кнопку возврата
     const backButton = document.querySelector('.back-button');
     backButton.style.display = 'inline-block';
@@ -84,4 +87,23 @@ function goBackToLanguageSelection() {
     // Анимация появления блока выбора языка
     languageWrapper.style.animation = 'fadeIn 0.5s ease-out forwards'; // Анимация появления
   }, 500); // Задержка в 500мс, чтобы дождаться окончания анимации исчезновения контента
+}
+
+// Функция для обновления текста кнопки возврата
+function updateBackButtonText(language) {
+  const backButton = document.querySelector('.back-button');
+  switch (language) {
+    case 'ru':
+      backButton.innerHTML = '← Вернуться к выбору языка';
+      break;
+    case 'en':
+      backButton.innerHTML = '← Back to language selection';
+      break;
+    case 'ro':
+      backButton.innerHTML = '← Înapoi la selecția limbii';
+      break;
+    default:
+      backButton.innerHTML = '← Вернуться к выбору языка';
+      break;
+  }
 }
