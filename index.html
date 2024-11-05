@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Новый контейнер для языковых блоков (показывается сначала) -->
+    <!-- Новый контейнер для языковых блоков -->
     <div class="language-wrapper" id="language-wrapper">
         <!-- Блок выбора языка (сверху) -->
         <div class="language-selection-container">
@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    <!-- Основной контейнер с контентом, по умолчанию скрыт -->
+    <!-- Основной контейнер -->
     <div class="container" id="content-container" style="display: none;">
         <!-- Добавляем картинку -->
         <img src="whatsapp.png" alt="WhatsApp" class="header-image">
@@ -34,11 +34,12 @@
         <div class="content">
             <button class="whatsapp-button" id="whatsapp-button" onclick="redirectToWhatsApp()">Написать в WhatsApp</button>
         </div>
-        
-        <!-- Кнопка для возврата (стрелка) -->
-        <button class="back-button" onclick="goBackToLanguageSelection()">← Вернуться к выбору языка</button>
+
+        <!-- Кнопка для возврата -->
+        <button class="back-button" onclick="goBackToLanguageSelection()" style="display: none;"></button>
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
+  
