@@ -7,14 +7,36 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <!-- Новый контейнер для языковых блоков (показывается сначала) -->
+    <div class="language-wrapper" id="language-wrapper">
+        <!-- Блок выбора языка (сверху) -->
+        <div class="language-selection-container">
+            <div class="language-selection">
+                <div class="language-option" onclick="setLanguage('ru')">
+                    <img src="russian-flag.png" alt="Русский" class="language-flag">
+                </div>
+                <div class="language-option" onclick="setLanguage('en')">
+                    <img src="uk-flag.png" alt="English" class="language-flag">
+                </div>
+                <div class="language-option" onclick="setLanguage('ro')">
+                    <img src="romania-flag.png" alt="România" class="language-flag">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Основной контейнер с контентом, по умолчанию скрыт -->
+    <div class="container" id="content-container" style="display: none;">
         <!-- Добавляем картинку -->
         <img src="whatsapp.png" alt="WhatsApp" class="header-image">
         
         <!-- Блок с заголовком и кнопкой -->
         <div class="content">
-            <button class="whatsapp-button" onclick="redirectToWhatsApp()">Написать в WhatsApp</button>
+            <button class="whatsapp-button" id="whatsapp-button" onclick="redirectToWhatsApp()">Написать в WhatsApp</button>
         </div>
+        
+        <!-- Кнопка для возврата (стрелка) -->
+        <button class="back-button" onclick="goBackToLanguageSelection()">← Вернуться к выбору языка</button>
     </div>
 
     <script src="script.js"></script>
