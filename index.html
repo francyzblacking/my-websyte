@@ -1,109 +1,44 @@
-// Храним сообщения для каждого языка
-const messages = {
-  ru: "Здравствуйте! Можно узнать детали работы?",  // Сообщение на русском
-  en: "Hello! May I have the details of the job?",  // Сообщение на английском
-  ro: "Bună ziua! Îmi puteți oferi detalii despre post?"  // Сообщение на румынском
-};
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перейти в WhatsApp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Новый контейнер для языковых блоков -->
+    <div class="language-wrapper" id="language-wrapper">
+        <!-- Блок выбора языка (сверху) -->
+        <div class="language-selection-container">
+            <div class="language-selection">
+                <div class="language-option" onclick="setLanguage('ru')">
+                    <img src="russian-flag.png" alt="Русский" class="language-flag">
+                </div>
+                <div class="language-option" onclick="setLanguage('en')">
+                    <img src="uk-flag.png" alt="English" class="language-flag">
+                </div>
+                <div class="language-option" onclick="setLanguage('ro')">
+                    <img src="romania-flag.png" alt="România" class="language-flag">
+                </div>
+            </div>
+        </div>
+    </div>
 
-// Текущий выбранный язык (по умолчанию русский)
-let currentLanguage = 'ru';
+    <!-- Основной контейнер -->
+    <div class="container" id="content-container" style="display: none;">
+        <!-- Добавляем картинку -->
+        <img src="whatsapp.png" alt="WhatsApp" class="header-image">
+        
+        <!-- Блок с заголовком и кнопкой -->
+        <div class="content">
+            <button class="whatsapp-button" id="whatsapp-button" onclick="redirectToWhatsApp()">Написать в WhatsApp</button>
+        </div>
 
-// Обработчик для изменения языка
-function setLanguage(language) {
-  // Обновляем текущий язык
-  currentLanguage = language;
+        <!-- Кнопка для возврата -->
+        <button class="back-button" onclick="goBackToLanguageSelection()" style="display: none;"></button>
+    </div>
 
-  // Меняем текст на кнопке в зависимости от выбранного языка
-  const button = document.getElementById('whatsapp-button');
-  
-  // Анимация исчезновения блока выбора языка
-  const languageWrapper = document.getElementById('language-wrapper');
-  languageWrapper.style.animation = 'fadeOut 0.5s ease-out forwards';
-
-  setTimeout(() => {
-    // Скрываем блок выбора языка
-    languageWrapper.style.display = 'none';
-
-    // Показываем основной контент с кнопкой
-    const contentContainer = document.getElementById('content-container');
-    contentContainer.style.display = 'block';
-
-    // Меняем текст кнопки в зависимости от выбранного языка
-    switch (language) {
-        case 'ru':
-            button.innerHTML = 'Написать в WhatsApp';
-            break;
-        case 'en':
-            button.innerHTML = 'Write in WhatsApp';
-            break;
-        case 'ro':
-            button.innerHTML = 'Scrie în WhatsApp';
-            break;
-        default:
-            button.innerHTML = 'Написать в WhatsApp';
-            break;
-    }
-
-    // Обновляем текст кнопки возврата
-    updateBackButtonText(language);
-
-    // Показываем кнопку возврата
-    const backButton = document.querySelector('.back-button');
-    backButton.style.display = 'inline-block';
-
-    // Анимация появления нового текста
-    contentContainer.style.animation = 'fadeIn 0.5s ease-out forwards';
-  }, 500); // Задержка в 500мс, чтобы дождаться окончания анимации исчезновения
-}
-
-// Функция для редиректа в WhatsApp
-function redirectToWhatsApp() {
-  const phoneNumber = "79953483"; // Укажите номер телефона
-  const message = messages[currentLanguage]; // Выбираем сообщение в зависимости от языка
-  const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-  
-  // Переход по ссылке
-  window.location.href = url;
-}
-
-// Функция для возврата к выбору языка
-function goBackToLanguageSelection() {
-  // Скрываем основной контент с кнопкой
-  const contentContainer = document.getElementById('content-container');
-  contentContainer.style.animation = 'fadeOut 0.5s ease-out forwards'; // Анимация исчезновения контента
-
-  setTimeout(() => {
-    // Скрываем основной контейнер
-    contentContainer.style.display = 'none';
-
-    // Показываем блок выбора языка
-    const languageWrapper = document.getElementById('language-wrapper');
-    languageWrapper.style.display = 'flex'; // Показать блок выбора языка
-
-    // Скрываем кнопку возврата
-    const backButton = document.querySelector('.back-button');
-    backButton.style.display = 'none';
-
-    // Анимация появления блока выбора языка
-    languageWrapper.style.animation = 'fadeIn 0.5s ease-out forwards'; // Анимация появления
-  }, 500); // Задержка в 500мс, чтобы дождаться окончания анимации исчезновения контента
-}
-
-// Функция для обновления текста кнопки возврата
-function updateBackButtonText(language) {
-  const backButton = document.querySelector('.back-button');
-  switch (language) {
-    case 'ru':
-      backButton.innerHTML = '← Вернуться к выбору языка';
-      break;
-    case 'en':
-      backButton.innerHTML = '← Back to language selection';
-      break;
-    case 'ro':
-      backButton.innerHTML = '← Înapoi la selecția limbii';
-      break;
-    default:
-      backButton.innerHTML = '← Вернуться к выбору языка';
-      break;
-  }
-}
+    <script src="script.js"></script>
+</body>
+</html>
