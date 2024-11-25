@@ -24,86 +24,6 @@ body {
   }
 }
 
-/* Анимация для плавного исчезновения */
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-}
-
-/* Новый контейнер для блоков выбора языка */
-.language-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin-bottom: 30px;
-  background-color: #25D366; /* Зеленый фон */
-  padding: 10px 0;
-  box-sizing: border-box;
-  max-width: 400px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3), 0 6px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-}
-
-/* Контейнер для блоков выбора языка */
-.language-selection-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  max-width: 400px;
-  overflow: hidden;
-}
-
-/* Блоки выбора языка */
-.language-selection {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  height: 50px;
-  box-sizing: border-box;
-}
-
-/* Маленькие контейнеры для каждого флага */
-.language-option {
-  cursor: pointer;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  animation: fadeIn 0.5s ease-out forwards;
-}
-
-/* Настроим картинки флагов */
-.language-option img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Текст под флагами */
-.languages-text {
-  text-align: center;
-  margin-top: 10px;
-  font-size: 18px;
-  color: white;
-  font-weight: bold;
-}
-
 /* Контейнер с контентом (основной блок) */
 .container {
   text-align: center;
@@ -115,7 +35,7 @@ body {
   max-width: 400px;
   box-sizing: border-box;
   animation: fadeIn 0.5s ease-out forwards;
-  display: none;
+  display: block;
 }
 
 /* Стиль для картинки в верхней части */
@@ -143,20 +63,7 @@ body {
   background-color: #128C7E;
 }
 
-/* Стиль кнопки возврата (стрелка) */
+/* Скрываем кнопку возврата, так как она больше не нужна */
 .back-button {
-  background-color: #fff;
-  color: #25D366;
-  font-size: 16px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: background-color 0.3s;
   display: none;
-}
-
-.back-button:hover {
-  background-color: #128C7E;
 }
