@@ -1,42 +1,18 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Перейти в WhatsApp</title>
+    <title>Go to WhatsApp</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Новый контейнер для языковых блоков -->
-    <div class="language-wrapper" id="language-wrapper">
-        <!-- Блок выбора языка (сверху) -->
-        <div class="language-selection-container">
-            <div class="language-selection">
-                <div class="language-option" onclick="setLanguage('ru')">
-                    <img src="russian-flag.png" alt="Русский" class="language-flag">
-                </div>
-                <div class="language-option" onclick="setLanguage('en')">
-                    <img src="uk-flag.png" alt="English" class="language-flag">
-                </div>
-                <div class="language-option" onclick="setLanguage('ro')">
-                    <img src="romania-flag.png" alt="România" class="language-flag">
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Основной контейнер -->
-    <div class="container" id="content-container" style="display: none;">
-        <!-- Добавляем картинку -->
+    <div class="container" id="content-container">
         <img src="whatsapp.png" alt="WhatsApp" class="header-image">
-        
-        <!-- Блок с заголовком и кнопкой -->
         <div class="content">
-            <button class="whatsapp-button" id="whatsapp-button" onclick="redirectToWhatsApp()">Написать в WhatsApp</button>
+            <button class="whatsapp-button" id="whatsapp-button" onclick="redirectToWhatsApp()">Write in WhatsApp</button>
         </div>
-
-        <!-- Кнопка для возврата -->
-        <button class="back-button" onclick="goBackToLanguageSelection()" style="display: none;"></button>
     </div>
 
     <script src="script.js"></script>
