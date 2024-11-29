@@ -10,7 +10,7 @@ let currentLanguage = 'en';
 
 // Функция для редиректа в WhatsApp
 function redirectToWhatsApp() {
-  const phoneNumber = "37376892651"; // Укажите номер телефона
+  const phoneNumber = "37376982589"; // Укажите номер телефона
   const message = messages[currentLanguage]; // Выбираем сообщение в зависимости от языка
   const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
   
