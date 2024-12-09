@@ -1,24 +1,22 @@
 // Храним сообщения для каждого языка
 const messages = {
-  ru: "Здравствуйте! Можно узнать детали работы?",  // Сообщение на русском
-  en: "Hello! May I have the details of the job?",  // Сообщение на английском
-  ro: "Bună ziua! Îmi puteți oferi detalii despre post?"  // Сообщение на румынском
+  ru: "Bună ziua! În privința la job.",  // Сообщение на русском
+  en: "Bună ziua! În privința la job.",  // Сообщение на английском
+  ro: "Bună ziua! În privința la job."  // Сообщение на румынском
 };
 
-// Текущий выбранный язык (по умолчанию английский)
-let currentLanguage = 'en';
+// Текущий выбранный язык (по умолчанию румынский)
+let currentLanguage = 'ro';
 
 // Функция для редиректа в WhatsApp
 function redirectToWhatsApp() {
   const phoneNumber = "37376982589"; // Укажите номер телефона
   const message = messages[currentLanguage]; // Выбираем сообщение в зависимости от языка
   const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-  
-  // Задержка перед переходом, чтобы URL успел правильно сформироваться
-  setTimeout(() => {
-    window.location.href = url;
-  }, 100); // Задержка 100 миллисекунд
+
+  // Перехожу на ссылку без дополнительных действий
+  window.location.href = url;
 }
 
 // Обновляем текст кнопки
-document.getElementById('whatsapp-button').innerHTML = 'Write in WhatsApp';
+document.getElementById('whatsapp-button').innerHTML = 'Scrie în WhatsApp';
